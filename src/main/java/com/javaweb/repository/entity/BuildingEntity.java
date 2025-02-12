@@ -1,42 +1,135 @@
 package com.javaweb.repository.entity;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "building")
 public class BuildingEntity {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY  )
 	private Long id;
+	
+	@OneToMany(mappedBy = "buildingX", fetch = FetchType.LAZY)
+	private List<RentAreaEntity> rentAreas = new ArrayList<RentAreaEntity>();
+	
+	public List<RentAreaEntity> getRentAreas() {
+		return rentAreas;
+	}
+	public void setRentAreas(List<RentAreaEntity> rentAreas) {
+		this.rentAreas = rentAreas;
+	}
+	
+	@Column(name = "name", unique = true, nullable = false)
 	private String name;
+	
+	@Column(name = "street")
 	private String street;
+	
+	@Column(name = "ward")
 	private String ward;
+	
+	@Column(name = "district")
 	private String district;
+	
+	@Column(name = "structure")
 	private String structure;
+	
+	@Column(name = "numberofbasement")
 	private Long numberOfBasement;
+	
+	@Column(name = "floorarea")
 	private Long floorarea;
+	
+	@Column(name = "direction")
 	private String direction;
+	
+	@Column(name = "level")
 	private String level;
+	
+	@Column(name = "rentprice")
 	private Long rentprice;
+	
+	@Column(name = "rentpricedescription")
 	private String rentpricedescription;
+	
+	@Column(name = "servicefee")
 	private String servicefee;
+	
+	@Column(name = "carfee")
 	private String carfee;
+	
+	@Column(name = "motofee")
 	private String motofee;
+	
+	@Column(name = "overtimefee")
 	private String overtimefee;
+	
+	@Column(name = "waterfee")
 	private String waterfee;
+	
+	@Column(name = "electricityfee")
 	private String electricityfee;
+	
+	@Column(name = "deposit")
 	private String deposit;
+	
+	@Column(name = "payment")
 	private String payment;
+	
+	@Column(name = "renttime")
 	private String renttime;
+	
+	@Column(name = "decorationtime")
 	private String decorationtime;
+	
+	@Column(name = "brokeragefee")
 	private Double brokeragefee;
+	
+	@Column(name = "type")
 	private String type;
+	
+	@Column(name = "note")
 	private String note;
+	
+	@Column(name = "linkofbuilding")
 	private String linkofbuilding;
+	
+	@Column(name = "map")
 	private String map;
+	
+	@Column(name = "avatar")
 	private String avatar;
+	
+	@Column(name = "createddate")
 	private Date createddate;
+	
+	@Column(name = "modifieddate")
 	private Date modifieddate;
+	
+	@Column(name = "createdby")
 	private String createdby;
+	
+	@Column(name = "modifiedby")
 	private String modifiedby;
+	
+	@Column(name = "managername")
 	private String managername;
+	
+	@Column(name = "managerphone")
 	private String managerphone;
+	
+	
 	public Long getId() {
 		return id;
 	}

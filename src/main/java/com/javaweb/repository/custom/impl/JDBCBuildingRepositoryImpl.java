@@ -1,4 +1,4 @@
-package com.javaweb.repository.impl;
+package com.javaweb.repository.custom.impl;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,18 +7,22 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
-import org.springframework.util.NumberUtils;
 
-import com.javaweb.model.BuildingDTO;
 import com.javaweb.repository.BuildingRepository;
+import com.javaweb.repository.custom.BuildingRepositoryCustom;
 import com.javaweb.repository.entity.BuildingEntity;
 import com.javaweb.utils.NumberUtil;
 import com.javaweb.utils.StringUtil;
 
 @Repository
-public class BuildingRepositoryImpl implements BuildingRepository {
+public class JDBCBuildingRepositoryImpl implements BuildingRepositoryCustom {
 	private static final String DB_URL = "jdbc:mysql://localhost:3306/estateadvance"; 
     private static final String USER = "root"; 
     private static final String PASSWORD = "27032003";     
@@ -150,5 +154,4 @@ public class BuildingRepositoryImpl implements BuildingRepository {
         
         return result;
 	}
-
 }

@@ -1,4 +1,4 @@
-package com.javaweb.repository.impl;
+package com.javaweb.repository.custom.impl;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -27,7 +27,7 @@ public class RentAreaRepositoryImpl implements RentAreaRepository {
 				RentAreaEntity area = new RentAreaEntity();
 				area.setId(rs.getLong("id"));
 				area.setValue(rs.getString("value"));
-				area.setBuildingId(rs.getLong("buildingid"));
+//				area.setBuildingId(rs.getLong("buildingid"));
 				rentAreas.add(area);
 			}
 		} catch (Exception e) {
